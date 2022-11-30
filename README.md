@@ -41,21 +41,6 @@ menu
 - The The `mod.rs` file will hold all the logic for for taking data from the `universe` and mapping it to the `menu_view.rs` file. This file could look something like:
 
 ```rust
-    struct MenuView {
-        close_menu: Box<dyn Fn()>
-    }
-
-    impl View for MenuView {
-        fn render() -> VirtualNode {
-            html! { /* Some HTML */ }
-        }
-    }
-```
-
-- In the event that the menu component does not reach out to any data in the universe, then it will not have a `menu_view.rs` file and will only hold the `mod.rs` file.
-- Whenever `Menu` is being used, it will be rendered something like:
-
-```rust
     [ /* Some Proc Macro */ ]
     struct Menu {
         universe: AppUniverse<AppState>
@@ -75,7 +60,13 @@ menu
     }
 ```
 
+- In the event that the menu component does not reach out to any data in the universe, then it will not have a `menu_view.rs` file and will only hold the `mod.rs` file.
+- Whenever `Menu` is being used, it will be rendered something like:
+
 ```rust
 [/* Some Proc Macro */]
 <Menu />
 ```
+
+**Need to find a more efficient way to pass regular data that `MenuView` needs through `Menu`.**
+For instance, if `MenuView` needs a color passed in, it will be passed in into `<Menu color="red" />` and `Menu` will pass it into `MenuView`. This is tedious.
