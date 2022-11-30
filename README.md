@@ -70,3 +70,7 @@ menu
 
 **Need to find a more efficient way to pass regular data that `MenuView` needs through `Menu`.**
 For instance, if `MenuView` needs a color passed in, it will be passed in into `<Menu color="red" />` and `Menu` will pass it into `MenuView`. This is tedious.
+
+### 2. Optimised selectors and rendering:
+
+TODO: Finish up 1, and iron ideas for this out properly
